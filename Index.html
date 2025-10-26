@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Max Design</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #f7f8fa;
+      --muted: #6b7280;
+      --accent: #1f6feb;
+      --text: #111827;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeDown 1s ease forwards;
+    }
+
+    @keyframes fadeDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    nav h1 {
+      font-size: 1.3rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .services-grid,
+    .portfolio-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .portfolio-grid img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .portfolio-grid img:hover {
+      transform: scale(1.03);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    input,
+    textarea {
+      padding: 0.75rem;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #155ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--card);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Payment Section */
+    .payment-container {
+      text-align: center;
+    }
+
+    .qr-box {
+      display: inline-block;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      margin-top: 1rem;
+    }
+
+    .qr-box img {
+      width: 180px;
+      height: 180px;
+      border-radius: 10px;
+    }
+
+    /* Scroll animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      section {
+        padding: 3rem 1rem;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>The Max Design</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#prices">Prices</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#instagram">Instagram</a></li>
+      <li><a href="#payment">Payment</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="reveal">
+    <h2>Welcome to The Max Design</h2>
+    <p style="text-align:center; max-width:700px; margin:auto;">
+      I create professional graphic designs, social media visuals, banners, and branding material — clean, creative, and built to stand out.
+    </p>
+  </section>
+
+  <section id="services" class="reveal">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="card"><h3>Logo Design</h3><p>Creative and memorable logos that define your identity.</p></div>
+      <div class="card"><h3>Social Media Design</h3><p>Modern Instagram posts, stories, and reels.</p></div>
+      <div class="card"><h3>Banner Design</h3><p>Posters and promotional graphics that grab attention.</p></div>
+      <div class="card"><h3>UI/UX Design</h3><p>Simple, elegant interfaces for websites and apps.</p></div>
+    </div>
+  </section>
+
+  <section id="prices" class="reveal">
+    <h2>Prices</h2>
+    <div class="card"><p><b>Mini Website Design:</b> ₹799</p></div>
+    <div class="card"><p><b>Visiting Card Design:</b> ₹250+</p></div>
+    <div class="card"><p><b>Banner Design:</b> ₹350+</p></div>
+    <div class="card"><p><b>Instagram Post/Reel Design:</b> ₹200+</p></div>
+  </section>
+
+  <section id="portfolio" class="reveal">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <img src="https://via.placeholder.com/300x200" alt="Work 1" />
+      <img src="https://via.placeholder.com/300x200" alt="Work 2" />
+      <img src="https://via.placeholder.com/300x200" alt="Work 3" />
+      <img src="https://via.placeholder.com/300x200" alt="Work 4" />
+    </div>
+  </section>
+
+  <section id="about" class="reveal">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>I'm Arsh Saiyad, a graphic designer and video editor with over 2.5 years of experience in creative design. I specialize in CorelDRAW, Photoshop, Illustrator, and Figma — delivering designs that blend clarity and creativity.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <h2>Contact</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <section id="instagram" class="reveal">
+    <h2>Follow on Instagram</h2>
+    <p style="text-align:center;">📸 <a href="https://instagram.com/themaxdesignstudio" target="_blank">@themaxdesignstudio</a></p>
+  </section>
+
+  <section id="payment" class="reveal">
+    <h2>Payment</h2>
+    <div class="payment-container">
+      <p>Pay securely via UPI</p>
+      <div class="card">
+        <p><b>UPI ID:</b> arshsaiyad@upi</p>
+        <div class="qr-box">
+          <img src="https://via.placeholder.com/180x180?text=QR+Code" alt="Payment QR Code" />
+        </div>
+        <p style="margin-top:0.5rem;">Scan this QR or use UPI ID to pay</p>
+        <button onclick="alert('Redirecting to payment...')">Pay Now</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 The Max Design — All rights reserved.
+  </footer>
+
+  <script>
+    // Smooth scroll offset fix
+    const navHeight = document.querySelector('nav').offsetHeight;
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        window.scrollTo({
+          top: target.offsetTop - navHeight,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Scroll reveal animation
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    reveals.forEach(r => observer.observe(r));
+  </script>
+</body>
+        </html>
